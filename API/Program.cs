@@ -19,13 +19,18 @@ namespace API
             RootObject menu = JsonConvert.DeserializeObject<RootObject>(content); // Byt ut till er eget huvudobjekt
             
 
-            foreach (Laureate l in menu.laureates)
+            foreach (Laureate l in menu.laureates) //går igenom varje person i Lauratelistan
             {
-                if(l.bornCountry == "Sweden")
+                if(l.bornCountry == "Sweden") //Om personen är ifrån Sverige så skrivs det ut
                 {
                     Console.WriteLine(l.firstname + " " + l.surname);
+                    Console.WriteLine(l.died);
+                    Console.WriteLine(l.prizes [0].category);
+                    Console.WriteLine(l.prizes[0].year);
                 }
+
             }
+            
             Console.Read();
         }
 
